@@ -7,3 +7,12 @@ coffee_data <- data.frame(coffees, adjusted_coffees)
 coffee_data[1,]
 coffee_data[,1]
 coffee_data$coffees[1]
+lsf("package:base")
+lsf.str('package:base')
+dplyr::if_else
+
+convert_f_to_c <- function(farh_number) {
+  celc <- (farh_number - 32) / 1.8
+  print(celc)
+}
+convert_f_to_c(9)
