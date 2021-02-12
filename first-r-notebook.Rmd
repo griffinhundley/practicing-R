@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
 output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
@@ -17,10 +19,33 @@ print('Hello World')
 ```
 
 ```{r}
-
+# install.packages('tidyverse')
 ```
 
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# Exploring tidyverse
+```{r}
+library(dplyr) # for manipulating data
+library(readr) # for getting data
+library(ggplot2) # for plotting data
+tips <- read_csv("tips.csv")
+# You can change where this is output above in "Settings (by knit) > 	Chunk Output in Console"
+tips
+select(tips, -X1)
+select(tips, starts_with('s'))
+filter(tips, day =='Sun')
+
+tips %>%
+select(smoker, tip) %>%
+mutate(gbp_tip = tip * .82) %>%
+filter(gbp_tip >= 5)
+```
+
+
+
+
+
 
