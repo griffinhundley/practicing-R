@@ -1,0 +1,17 @@
+---
+title: "Train Test Split in R"
+output: rmarkdown::github_document
+---
+
+```{r}
+library(readr)
+library(magrittr)
+library(caTools)
+library(dplyr)
+data <- readr::read_csv('data/streamer_data.csv')
+set.seed(1)
+data$split <- sample.split(data$target, SplitRatio = 0.7)
+train <- data %>% filter(split == TRUE)
+test <- data %>% filter(split == FALSE)
+```
+
