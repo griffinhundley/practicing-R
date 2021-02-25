@@ -12,3 +12,8 @@ linmod = lm(df$y ~ df$x)
 abline(linmod, col='red')
 linmod
 ```
+
+```{r}
+t.test(df$x,df$y)
+```
+
