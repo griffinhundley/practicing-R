@@ -1,0 +1,14 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+x <- c(1,10,20,40,60,71,80,95,120,125)
+y <- c(3,20,90,110,130,170,150,220,260,300)
+df <- tibble(x=x, y=y)
+plot(df$y ~ df$x)
+linmod = lm(df$y ~ df$x)
+abline(linmod, col='red')
+linmod
+```
