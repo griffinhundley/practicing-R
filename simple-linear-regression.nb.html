@@ -269,10 +269,34 @@ mean of x mean of y
      62.2     145.3 </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5kYXRhIDwtIHJlYWRfY3N2KCdkYXRhL3N0cmVhbWVyX2RhdGEuY3N2JylcbmBgYCJ9 -->
+<pre class="r"><code>library(tidyverse)
+data &lt;- read_csv(&#39;data/streamer_data.csv&#39;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgbGFuZ3VhZ2UgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGdhbWVfbmFtZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgbG9naW4gPSBjb2xfY2hhcmFjdGVyKCksXG4gIGJyb2FkY2FzdGVyX3R5cGUgPSBjb2xfY2hhcmFjdGVyKCksXG4gIGFjY291bnRfYWdlID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<pre><code>
+── Column specification ───────────────────────────────────────────────────
+cols(
+  .default = col_double(),
+  language = col_character(),
+  game_name = col_character(),
+  login = col_character(),
+  broadcaster_type = col_character(),
+  account_age = col_character()
+)
+ℹ Use `spec()` for the full column specifications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG9ncmVnIDwtIGdsbSh0YXJnZXQgfiB2aWV3X2NvdW50ICsgYWNjb3VudF9hZ2UgKyBob3Vyc19zdHJlYW1lZCwgXG4gICAgICAgICAgICAgIGRhdGEgPSBkYXRhLFxuICAgICAgICAgICAgICBmYW1pbHkgPSAnYmlub21pYWwnKVxuYGBgIn0= -->
+<pre class="r"><code>logreg &lt;- glm(target ~ view_count + account_age + hours_streamed, 
+              data = data,
+              family = &#39;binomial&#39;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CnggPC0gYygxLDEwLDIwLDQwLDYwLDcxLDgwLDk1LDEyMCwxMjUpCnkgPC0gYygzLDIwLDkwLDExMCwxMzAsMTcwLDE1MCwyMjAsMjYwLDMwMCkKZGYgPC0gdGliYmxlKHg9eCwgeT15KQpwbG90KGRmJHkgfiBkZiR4KQpsaW5tb2QgPSBsbShkZiR5IH4gZGYkeCkKYWJsaW5lKGxpbm1vZCwgY29sPSdyZWQnKQpsaW5tb2QKYGBgCgpgYGB7cn0KdC50ZXN0KGRmJHgsZGYkeSkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CnggPC0gYygxLDEwLDIwLDQwLDYwLDcxLDgwLDk1LDEyMCwxMjUpCnkgPC0gYygzLDIwLDkwLDExMCwxMzAsMTcwLDE1MCwyMjAsMjYwLDMwMCkKZGYgPC0gdGliYmxlKHg9eCwgeT15KQpwbG90KGRmJHkgfiBkZiR4KQpsaW5tb2QgPSBsbShkZiR5IH4gZGYkeCkKYWJsaW5lKGxpbm1vZCwgY29sPSdyZWQnKQpsaW5tb2QKYGBgCgpgYGB7cn0KdC50ZXN0KGRmJHgsZGYkeSkKYGBgCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKZGF0YSA8LSByZWFkX2NzdignZGF0YS9zdHJlYW1lcl9kYXRhLmNzdicpCmxvZ3JlZyA8LSBnbG0odGFyZ2V0IH4gdmlld19jb3VudCArIGFjY291bnRfYWdlICsgaG91cnNfc3RyZWFtZWQsIAogICAgICAgICAgICAgIGRhdGEgPSBkYXRhLAogICAgICAgICAgICAgIGZhbWlseSA9ICdiaW5vbWlhbCcpCnN1bW1hcnkobG9ncmVnKQpgYGAKCg==</div>
 
 
 

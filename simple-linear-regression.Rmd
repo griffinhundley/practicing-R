@@ -16,4 +16,12 @@ linmod
 ```{r}
 t.test(df$x,df$y)
 ```
+```{r}
+library(tidyverse)
+data <- read_csv('data/streamer_data.csv')
+logreg <- glm(target ~ view_count + account_age + hours_streamed, 
+              data = data,
+              family = 'binomial')
+summary(logreg)
+```
 
